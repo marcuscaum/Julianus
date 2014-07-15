@@ -1,0 +1,8 @@
+<snippet>
+   <content><![CDATA[
+.defaultDiv (${1:width}, ${2:height}, ${3:left});
+]]></content>
+    <tabTrigger>def</tabTrigger>
+    <scope>source.less</scope>
+
+</snippet>

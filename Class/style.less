@@ -1,0 +1,269 @@
+@angle:0px;
+@distance:3px;
+@blur:5px;
+@text:left;
+
+
+
+.opacity (@opacity) {
+    @opacityPercentage: @opacity * 100;
+    opacity: @opacity;
+    -ms-filter: ~"progid:DXImageTransform.Microsoft.Alpha(opacity=(@{opacityPercentage}))"; 
+    filter: ~"alpha(opacity = (@{opacityPercentage}))";
+    -moz-opacity: @opacity;
+}
+.position(@position, @zindex){
+	position: @position;
+	z-index: @zindex;
+
+}
+
+.box-shadow(@angle:0px, @distance:3px, @blur:5px){
+	-webkit-box-shadow: @angle @distance @blur rgba(50, 50, 50, 0.75);
+	-moz-box-shadow:    @angle @distance @blur rgba(50, 50, 50, 0.75);
+	box-shadow:         @angle @distance @blur rgba(50, 50, 50, 0.75);
+}
+
+.animation(@name, @duration, @iteration, @function){
+    -webkit-animation-name: @name;
+    -webkit-animation-duration: @duration;
+    -webkit-animation-iteration-count: @iteration;
+    -webkit-animation-timing-function: @function;
+    -moz-animation-name: @name;
+    -moz-animation-duration: @duration;
+    -moz-animation-iteration-count: @iteration;
+    -moz-animation-timing-function: @function;
+    -ms-animation-name: @name;
+    -ms-animation-duration: @duration;
+    -ms-animation-iteration-count: @iteration;
+    -ms-animation-timing-function: @function;
+    animation-name: @name;
+    animation-duration: @duration;
+    animation-iteration-count: @iteration;
+    animation-timing-function: @function;
+
+}
+.margin(@margin){
+	margin:@margin;
+}
+
+.padding(@padding){
+	padding:@padding;
+}
+
+.defaultDiv(@width, @height, @float){
+	width: @width;
+	height: @height; 
+	float: @float;
+}
+.defaultDivHeight(@width, @height, @float){
+	width: @width;
+	min-height: @height; 
+	float: @float;
+}
+.defaultDivWidth(@width, @height, @float){
+	min-width: @width;
+	height: @height; 
+	float: @float;
+}
+
+.defaultDivPos(@width, @height, @position, @index){
+	width: @width;
+	height: @height;
+	.position(@position, @index)
+}
+
+.defaultDivPosH(@width, @height, @position, @index){
+	width: @width;
+	min-height: @height;
+	.position(@position, @index)
+}
+
+.completeDiv(@width, @height, @float, @margin, @padding, @border){
+	width: @width;
+	height: @height; 
+	float: @float;
+	.margin(@margin);
+	.padding(@padding);
+	border:@border;
+}
+
+.completeDivHeight(@width, @height, @float, @margin, @padding, @border){
+	width: @width;
+	min-height: @height; 
+	float: @float;
+	.margin(@margin);
+	.padding(@padding);
+	border:@border;
+}
+.completeDivWidth(@width, @height, @float, @margin, @padding, @border){
+	min-width: @width;
+	height: @height; 
+	float: @float;
+	.margin(@margin);
+	.padding(@padding);
+	border:@border;
+}
+
+
+.basicModulate(@float, @margin, @padding, @border){
+	float: @float;
+	.margin(@margin);
+	.padding(@padding);
+	border:@border;
+}
+
+
+
+.gradient(@initColor, @endColor){
+	background: @initColor;
+	background: -moz-linear-gradient(top, @initColor 0%, @endColor 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,@initColor), color-stop(100%,@endColor));
+	background: -webkit-linear-gradient(top, @initColor 0%,@endColor 100%);
+	background: -o-linear-gradient(top, @initColor 0%,@endColor 100%);
+	background: -ms-linear-gradient(top, @initColor 0%,@endColor 100%);
+	background: linear-gradient(to bottom, @initColor 0%,@endColor 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=@initColor, endColorstr=@endColor,GradientType=0 );
+
+}
+
+.genesis(){
+
+	* {	margin: 0px; padding: 0px; outline: 0px; font-weight: inherit; font-style: inherit; font-size: 100%; font-family: inherit; vertical-align: baseline; background-repeat:no-repeat;}
+	a {text-decoration:none; color: inherit;}
+	body { .background(@mainBackground); text-align:center; margin:0px; padding:0px; height: auto; width: auto;}
+	ul, ul li { margin: 0; padding: 0; display: block; list-style-type: none !important; }
+	strong {font-weight:bold;}
+	img {border: none;}
+}
+.genesisNOBODYBG(@mainFont, @mainBackground){
+	html{.background(@mainBackground); }
+	* {	margin: 0px; padding: 0px; outline: 0px; font-weight: inherit; font-style: inherit; font-size: 100%; font-family: inherit; vertical-align: baseline; background-repeat:no-repeat;}
+	a {text-decoration:none; color: inherit; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);}
+	body { font-family: @mainFont; text-align:center; margin:0px;}
+	ul, ul li { margin: 0; padding: 0;  list-style-type: none !important; }
+	strong {font-weight:bold;}
+	img {border: none;}
+	.clear {content:".";display:block;clear:both;visibility:hidden;height:0;overflow:hidden;}
+}
+
+
+
+
+.unselectText(){
+	-webkit-touch-callout: 	none;
+	-webkit-user-select: 	none;
+	-khtml-user-select: 	none;
+	-moz-user-select: 		none;
+	-ms-user-select: 		none;
+	user-select: 			none;
+	-o-user-select: 		none;
+}
+
+.background(@background){
+    background:@background;
+
+}
+
+.border-radius(@border-radius){
+	border-radius:@border-radius;
+}
+
+
+
+.font(@fontName, @size, @color, @weight, @text){
+	font-family: @fontName;
+	font-size: @size;
+	color:@color;
+	font-weight: @weight;
+	text-align: @text;
+
+}
+
+
+.quadrado-arredondado (@width, @height, @float, @background, @border-radius, @color, @border){
+ width:@width;
+ height:@height;
+ float:@float;
+ background:@background;
+ color:@color;
+ border:@border;
+ .border-radius(@border-radius);
+
+}
+
+.transform(@translate){
+	-webkit-transform:@translate;
+	-moz-transform:@translate;
+	transform:@translate;
+}
+
+.transformOrigin(@translate){
+	-webkit-transform-origin:@translate;
+	-moz-transform-origin:@translate;
+	transform-origin:@translate;
+}
+
+.perspective(@perspective){
+	-webkit-perspective: @perspective;
+	-moz-perspective: @perspective;
+	perspective: @perspective;
+}
+
+.perspectiveOrigin(@perspective){
+	-webkit-perspective-origin: @perspective;
+	-moz-perspective-origin: @perspective;
+	perspective-origin: @perspective;
+}
+
+.backface(@backface){
+	-webkit-backface-visibility: @backface;
+	-moz-backface-visibility: @backface;
+	backface-visibility: @backface;
+}
+
+.transition(@transition) {
+ -webkit-transition: @transition;
+ -moz-transition: @transition;
+ -o-transition: @transition;
+ transition: @transition;
+}
+
+
+.box-shadow-inset(){
+
+box-shadow: inset 0px 0px 10px 1px rgba(119, 119, 119, 0.3);
+-moz-box-shadow: inset 0px 0px 10px 1px rgba(119, 119, 119, 0.3);
+-webkit-box-shadow: inset 0px 0px 10px 1px rgba(119, 119, 119, 0.3);
+
+}
+
+
+.menuComSubmenu(@width, @height, @padding, @hoverColor){
+		
+	header > ul#menuNormal{margin: 0 auto; float:left; width: @width; height: @height;  .font(@mainFont, @fontSize * 1.5, white, normal, left);}
+	header > ul#menuNormal input[type=text] {width: 150px; height: 27px; float: left;  border: 1px solid #cacaca; font-size: 13px; color: #cdcdcd;  padding: 0 0 0 5px !important; border-radius: 0 !important; margin-bottom: 0 !important; }
+	header > ul input[type=submit] {width: 34px;   height: 29px;  margin-top: 0; border:none; float: left;  border-top-right-radius:10px; border-bottom-right-radius:10px;  background:#304967; }
+
+	header > ul#menuNormal li{min-width:15px; height: 19px; float:left;  .padding(@padding); .transition(0.5s ease all);border-right:1px solid #fff;}
+	header > ul#menuNormal li:last-child{border-right:none !important;}
+	header > ul#menuNormal li:hover{ .background(@hoverColor); color: #fff; }
+	header > ul#menuNormal li ul#subMenu1{ display: none;.background(#fff); color: #134700; .box-shadow(@angle, @distance,  @blur); .completeDivHeight(230px, 10px, left, 13px 0 0 -74px, 0, 1px solid #134700); .position(absolute, 11);}
+	header > ul#menuNormal li ul#subMenu2{ display: none;.background(#fff); color: #134700; .box-shadow(@angle, @distance,  @blur); .completeDivHeight(230px, 10px, left, 13px 0 0 -136px, 0, 1px solid #134700); .position(absolute, 11);}
+	header > ul#menuNormal li ul#subMenu1 li, ul#subMenu2 li{width: 94%; border: none !important; padding: 15px 0 15px 15px !important; font-size: 14px; }
+	header > nav ul#menuNormal li ul#subMenu1 li:first-child:hover{border-top-left-radius:0 !important; border-bottom-left-radius:0 !important;  background:#304967;  color: #fff;}
+
+}
+
+.include-custom-font(@family: arial, @weight: normal, @style: normal){
+    @font-face{
+        font-family: @family;
+        src:url('fonts/@{family}.eot');
+        src:url('fonts/@{family}.eot?#iefix') format('embedded-opentype'),
+            url('fonts/@{family}.woff') format('woff'),
+            url('fonts/@{family}.ttf') format('truetype'),
+            url('fonts/@{family}.svg#icon') format('svg');
+        font-weight: @weight;
+        font-style: @style;
+    }
+}

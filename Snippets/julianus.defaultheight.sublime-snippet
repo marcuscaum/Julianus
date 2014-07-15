@@ -1,0 +1,8 @@
+<snippet>
+   <content><![CDATA[
+.defaultDivHeight (${1:width}, ${2:min-height}, ${3:float} );
+]]></content>
+    <tabTrigger>defh</tabTrigger>
+    <scope>source.less</scope>
+
+</snippet>

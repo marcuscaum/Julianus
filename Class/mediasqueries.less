@@ -1,0 +1,24 @@
+/*@mediaQ: ~"@media only screen and (min-device-width : 320px) and (max-device-width : 480px)";
+@var: ~".topo{background: white;}";
+
+@{mediaQ}{
+	@import("style.less");
+}
+
+@import "style.less" screen and (max-width: 400px);
+
+
+@singleQuery: ~"(max-width: 500px)";
+@media screen, @singleQuery {
+  .set {
+    padding: 3 3 3 3;
+  }
+}
+*/
+
+@singleQuery: ~"@media only screen and (max-device-width : 1024px)";
+@media screen and (max-width: 1024px){
+	.topo_login {
+		background-color: #CACACA;
+	}
+}

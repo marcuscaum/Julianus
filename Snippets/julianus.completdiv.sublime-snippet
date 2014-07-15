@@ -1,0 +1,8 @@
+<snippet>
+   <content><![CDATA[
+.completeDiv (${1:width}, ${2:height}, ${3:float}, ${4:margin}, ${5:padding}, ${3:border} );
+]]></content>
+    <tabTrigger>complete</tabTrigger>
+    <scope>source.less</scope>
+
+</snippet>

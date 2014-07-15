@@ -1,0 +1,8 @@
+<snippet>
+   <content><![CDATA[
+.position (${1:absolute}, ${2:z-index});
+]]></content>
+    <tabTrigger>pos</tabTrigger>
+    <scope>source.less</scope>
+
+</snippet>

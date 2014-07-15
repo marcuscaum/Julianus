@@ -1,0 +1,54 @@
+//*===================Padrão em Grids - 12 Colunas==================*/
+
+//=========================Variáveis================================
+//@width_pai : 960px; FIXO
+//@w_coluna : 60px; //Tamanho das colunas sem margin left right
+//@num_colunas : 12; //Quantidade de colunas máxima
+//@grid_margin : 10px; //Margin das colunas (left right)
+@width_pai: @num_colunas * (@w_coluna + (2 * @grid_margin)); //Container pai dinamico
+
+@grids : ~".grid_1, .grid_2, .grid_3, .grid_4, .grid_5, .grid_6, .grid_7, .grid_8, .grid_9, .grid_10, .grid_11, .grid_12";
+
+/*=========================Grids================================*/
+.container_12 {
+	margin-left: auto;
+	margin-right: auto;
+	width: @width_pai;
+}
+
+@{grids}{
+	display:inline;
+	float: left;
+	margin-left: @grid_margin !important ;
+	margin-right: @grid_margin !important;
+}
+
+@index : 1; //Contador
+.loopGrids (@index) when (@index =< @num_colunas) {
+
+	(~".grid_@{index}"){
+		@width : @width_pai - (@width_pai - ((@index * (@w_coluna + (@grid_margin * 2))) - (@grid_margin * 2)));
+		width: @width !important;
+	}
+
+	.loopGrids(@index + 1)
+}
+.loopGrids(@num_colunas){} //Fim do loop quando o índice é igual ao número de colunas
+.loopGrids(@index); //Valor inicial da incrementação 
+
+.alpha {
+	margin-left: 0 !important;
+}
+
+.omega {
+	margin-right: 0 !important;
+}
+
+.clear {
+  clear: both;
+  display: block;
+  overflow: hidden;
+  visibility: hidden;
+  width: 0;
+  height: 0;
+}
